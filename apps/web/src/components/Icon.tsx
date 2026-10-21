@@ -1,6 +1,6 @@
 import type { BenefitIcon } from '@variedades-mo/contracts';
 
-export type IconName = BenefitIcon | 'arrow' | 'grid' | 'home' | 'search';
+export type IconName = BenefitIcon | 'alert' | 'arrow' | 'grid' | 'home' | 'refresh' | 'search';
 
 type IconProps = {
   className?: string;
@@ -8,6 +8,12 @@ type IconProps = {
 };
 
 const paths: Record<IconName, React.ReactNode> = {
+  alert: (
+    <>
+      <path d="M10.3 3.6 2.4 18a2 2 0 0 0 1.8 3h15.6a2 2 0 0 0 1.8-3L13.7 3.6a2 2 0 0 0-3.4 0Z" />
+      <path d="M12 9v4M12 17h.01" />
+    </>
+  ),
   sparkles: (
     <>
       <path d="m12 3 1.2 3.8L17 8l-3.8 1.2L12 13l-1.2-3.8L7 8l3.8-1.2L12 3Z" />
@@ -49,6 +55,12 @@ const paths: Record<IconName, React.ReactNode> = {
     <>
       <path d="m3 11 9-8 9 8" />
       <path d="M5 10v10h14V10M9 20v-6h6v6" />
+    </>
+  ),
+  refresh: (
+    <>
+      <path d="M20 6v5h-5" />
+      <path d="M18.5 15a7 7 0 1 1-.7-7.8L20 11" />
     </>
   ),
   search: (

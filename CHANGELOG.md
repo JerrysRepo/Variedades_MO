@@ -11,6 +11,7 @@ Los cambios importantes se documentan en este archivo. El proyecto sigue
 - Catálogo, categorías, beneficios y contenido editorial administrables desde Google Sheets.
 - Componentes reutilizables, filtros por categoría, búsqueda y navegación móvil.
 - Ficha emergente accesible con detalle completo de cada producto y fondo difuminado.
+- Estados de carga y error responsive con retroalimentación accesible y opción de reintento.
 
 ### Changed
 

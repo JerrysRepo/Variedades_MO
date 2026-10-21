@@ -69,6 +69,10 @@ export async function getCatalog(signal?: AbortSignal): Promise<CatalogData> {
       throw new CatalogServiceError('La consulta tardó demasiado. Intenta nuevamente.');
     }
 
+    if (!navigator.onLine) {
+      throw new CatalogServiceError('Parece que no tienes conexión a internet.');
+    }
+
     throw new CatalogServiceError('No fue posible conectar con el catálogo.');
   } finally {
     window.clearTimeout(timeoutId);

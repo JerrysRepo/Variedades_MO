@@ -1297,29 +1297,75 @@ footer[id] {
 .loading-page,
 .error-page {
   display: grid;
-  min-height: 100vh;
+  min-height: 100dvh;
   place-items: center;
-  padding: 2rem;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  overflow: hidden;
   background:
-    radial-gradient(circle at 50% 42%, var(--color-white) 0 18rem, transparent 18.2rem),
+    radial-gradient(circle at 18% 18%, rgb(201 135 228 / 28%), transparent 19rem),
+    radial-gradient(circle at 88% 82%, rgb(158 73 199 / 18%), transparent 22rem),
     var(--color-lilac-50);
   text-align: center;
 }
 
-.loading-page > div {
+.loading-page--quiet {
+  background: var(--color-lilac-50);
+}
+
+.loading-page__panel {
+  position: relative;
   display: grid;
+  width: min(100%, 31rem);
   justify-items: center;
+  padding: clamp(2rem, 6vw, 3.5rem);
+  background: rgb(255 255 255 / 86%);
+  border: 1px solid var(--color-lilac-200);
+  border-radius: 2rem;
+  box-shadow: var(--shadow-soft);
+  -webkit-backdrop-filter: blur(1rem);
+  backdrop-filter: blur(1rem);
+  animation: loading-content-in 240ms ease-out;
+}
+
+.loading-page__panel::before,
+.loading-page__panel::after {
+  position: absolute;
+  color: var(--color-lilac-500);
+  font-size: 1.5rem;
+  content: '✦';
+}
+
+.loading-page__panel::before {
+  top: 1.5rem;
+  left: 1.8rem;
+}
+
+.loading-page__panel::after {
+  right: 1.8rem;
+  bottom: 1.5rem;
+  font-size: 1rem;
 }
 
 .loading-page__logo {
-  width: min(70vw, 16rem);
+  width: min(54vw, 11rem);
+  margin-top: 0.5rem;
   filter: drop-shadow(0 1rem 2rem rgb(113 17 131 / 15%));
+  animation: loading-logo-float 1.4s ease-in-out 2 alternate;
+}
+
+.loading-page h1 {
+  max-width: 12ch;
+  margin: 1.4rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 7vw, 2.75rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
 }
 
 .loading-page__indicator {
-  width: 6rem;
-  height: 0.35rem;
-  margin-top: 1.5rem;
+  width: min(100%, 11rem);
+  height: 0.4rem;
+  margin-top: 1.8rem;
   overflow: hidden;
   background: var(--color-lilac-200);
   border-radius: 999px;
@@ -1335,13 +1381,14 @@ footer[id] {
   content: '';
 }
 
-.loading-page p {
-  margin: 1rem 0 0;
+.loading-page h1 + p {
+  margin: 0.85rem 0 0;
   color: var(--color-ink-soft);
-  font-weight: 800;
+  line-height: 1.6;
 }
 
 .error-panel {
+  position: relative;
   width: min(100%, 38rem);
   padding: clamp(2rem, 6vw, 4rem);
   background: var(--color-white);
@@ -1350,9 +1397,35 @@ footer[id] {
   box-shadow: var(--shadow-soft);
 }
 
+.error-panel__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.8rem;
+  color: var(--color-purple-900);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+
 .error-panel__logo {
-  width: 8rem;
+  width: 3.5rem;
+}
+
+.error-panel__icon {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
   margin: 0 auto 1.5rem;
+  place-items: center;
+  color: var(--color-purple-900);
+  background: var(--color-lilac-200);
+  border-radius: 1.1rem;
+}
+
+.error-panel__icon svg {
+  width: 1.7rem;
+  height: 1.7rem;
 }
 
 .error-panel h1 {
@@ -1362,10 +1435,22 @@ footer[id] {
   line-height: 1;
 }
 
-.error-panel > p:not(.eyebrow) {
+.error-panel > p:not(.eyebrow, .error-panel__help) {
   margin: 1rem 0 1.8rem;
   color: var(--color-ink-soft);
   line-height: 1.6;
+}
+
+.error-panel__retry {
+  margin-inline: auto;
+}
+
+.error-panel__help {
+  max-width: 27rem;
+  margin: 1.5rem auto 0;
+  color: var(--color-ink-soft);
+  font-size: 0.78rem;
+  line-height: 1.55;
 }
 
 @keyframes loading-slide {
@@ -1375,6 +1460,23 @@ footer[id] {
 
   to {
     transform: translateX(100%);
+  }
+}
+
+@keyframes loading-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+@keyframes loading-logo-float {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-0.4rem);
   }
 }
 
@@ -1580,6 +1682,15 @@ footer[id] {
   .announcement-bar {
     gap: 0.4rem;
     font-size: 0.68rem;
+  }
+
+  .loading-page__panel,
+  .error-panel {
+    border-radius: 1.5rem;
+  }
+
+  .error-panel__retry {
+    width: 100%;
   }
 
   .brand-lockup__text strong {
