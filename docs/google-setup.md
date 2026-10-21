@@ -96,6 +96,10 @@ catalog.search_placeholder
 catalog.search_label
 catalog.filters_label
 catalog.featured_label
+catalog.open_product_label
+catalog.close_product_label
+catalog.product_description_label
+catalog.product_code_label
 catalog.price_prefix
 catalog.placeholder_label
 catalog.unknown_category_label
