@@ -38,8 +38,8 @@ export function CatalogSection({
   }, [products, query, selectedCategory]);
 
   return (
-    <section className="catalog-section" id="catalogo" aria-labelledby="catalog-title">
-      <div className="page-container">
+    <section className="catalog-section" aria-labelledby="catalog-title">
+      <div className="page-container" id="catalogo">
         <div className="catalog-section__heading">
           <SectionHeading
             description={content.description}

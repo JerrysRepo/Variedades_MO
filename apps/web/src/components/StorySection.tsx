@@ -9,8 +9,8 @@ type StorySectionProps = {
 
 export function StorySection({ content, tagline }: StorySectionProps) {
   return (
-    <section className="story-section" id="nosotros" aria-labelledby="story-title">
-      <div className="page-container story-section__grid">
+    <section className="story-section" aria-labelledby="story-title">
+      <div className="page-container story-section__grid" id="nosotros">
         <div className="story-art" aria-hidden="true">
           <span className="story-art__word">{content.mark}</span>
           <BrandLogo className="story-art__logo" decorative />

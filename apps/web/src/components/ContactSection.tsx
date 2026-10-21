@@ -11,8 +11,8 @@ export function ContactSection({ content }: ContactSectionProps) {
   const hasChannels = Boolean(content.whatsappUrl || content.instagramUrl || content.email);
 
   return (
-    <section className="contact-section" id="contacto" aria-labelledby="contact-title">
-      <div className="page-container">
+    <section className="contact-section" aria-labelledby="contact-title">
+      <div className="page-container" id="contacto">
         <div className="contact-panel">
           <div>
             <p className="eyebrow eyebrow--light">{content.eyebrow}</p>
