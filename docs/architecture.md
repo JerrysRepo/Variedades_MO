@@ -40,6 +40,9 @@ La API devuelve objetos con esta forma:
   "apiVersion": "v1",
   "generatedAt": "2026-10-21T17:00:00.000Z",
   "data": {
+    "site": {},
+    "categories": [],
+    "benefits": [],
     "products": []
   }
 }
@@ -50,5 +53,6 @@ se publica bajo `v2`.
 
 ## Ruta de crecimiento
 
-El frontend usa un repositorio de productos. Para migrar desde Apps Script hacia otra API solamente
-se reemplaza ese adaptador, manteniendo el contrato público y los componentes.
+El frontend usa un adaptador de catálogo que reúne el contenido público en una sola consulta. Para
+migrar desde Apps Script hacia otra API solamente se reemplaza ese adaptador, manteniendo el
+contrato público y los componentes.
