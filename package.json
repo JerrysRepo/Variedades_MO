@@ -1,0 +1,49 @@
+{
+  "name": "variedades-mo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Catálogo público de Variedades MO administrado desde Google Sheets.",
+  "packageManager": "npm@11.19.0",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "vite apps/web --config apps/web/vite.config.ts",
+    "build": "tsc -p apps/web/tsconfig.app.json --noEmit && tsc -p apps/web/tsconfig.node.json --noEmit && vite build apps/web --config apps/web/vite.config.ts",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "gas:open": "clasp -P apps/apps-script/.clasp.json open-script",
+    "gas:push": "clasp -P apps/apps-script/.clasp.json push",
+    "gas:version": "clasp -P apps/apps-script/.clasp.json version",
+    "lint": "eslint .",
+    "preview": "vite preview apps/web --config apps/web/vite.config.ts",
+    "test": "vitest run packages/contracts/src/index.test.ts",
+    "typecheck": "tsc -p packages/contracts/tsconfig.json --noEmit && tsc -p apps/web/tsconfig.app.json --noEmit && tsc -p apps/web/tsconfig.node.json --noEmit && tsc -p apps/apps-script/jsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/google-apps-script": "2.0.13",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "eslint": "10.13.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.7",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.72.0",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "timeZone": "America/Guatemala",
+  "dependencies": {},
+  "exceptionLogging": "STACKDRIVER",
+  "oauthScopes": ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+  "runtimeVersion": "V8"
+}
