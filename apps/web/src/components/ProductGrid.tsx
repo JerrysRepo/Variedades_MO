@@ -1,28 +1,37 @@
-import type { Product } from '@variedades-mo/contracts';
+import type { Category, Product, SiteContent } from '@variedades-mo/contracts';
 
 import { ProductCard } from './ProductCard';
 
 type ProductGridProps = {
+  categories: Category[];
+  content: SiteContent['catalog'];
   products: Product[];
 };
 
-export function ProductGrid({ products }: ProductGridProps) {
+export function ProductGrid({ categories, content, products }: ProductGridProps) {
+  const categoryNames = new Map(categories.map((category) => [category.id, category.name]));
+
   if (products.length === 0) {
     return (
-      <div className="rounded-[1.75rem] border border-dashed border-slate-300 bg-white/70 p-10 text-center">
-        <h3 className="text-lg font-bold text-slate-900">Todavía no hay productos publicados</h3>
-        <p className="mt-2 text-sm text-slate-600">
-          Activa al menos un producto en Google Sheets para mostrarlo aquí.
-        </p>
+      <div className="empty-state">
+        <span aria-hidden="true">♡</span>
+        <h3>{content.emptyTitle}</h3>
+        <p>{content.emptyDescription}</p>
       </div>
     );
   }
 
   return (
-    <ul className="grid list-none gap-6 p-0 sm:grid-cols-2 xl:grid-cols-3">
+    <ul className="product-grid">
       {products.map((product) => (
         <li key={product.id}>
-          <ProductCard product={product} />
+          <ProductCard
+            categoryName={categoryNames.get(product.category) ?? content.unknownCategoryLabel}
+            featuredLabel={content.featuredLabel}
+            placeholderLabel={content.placeholderLabel}
+            pricePrefix={content.pricePrefix}
+            product={product}
+          />
         </li>
       ))}
     </ul>

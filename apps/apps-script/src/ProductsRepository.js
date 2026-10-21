@@ -42,7 +42,7 @@ function readPublicProducts(config) {
   if (values.length < 2) return [];
 
   const headers = values[0].map((value) => String(value).trim().toLowerCase());
-  const indexes = createHeaderIndex(headers);
+  const indexes = createHeaderIndex(headers, PRODUCT_HEADERS, 'product');
   const products = [];
   const ids = new Set();
   const slugs = new Set();
@@ -73,18 +73,20 @@ function readPublicProducts(config) {
 
 /**
  * @param {string[]} headers
+ * @param {readonly string[]} requiredHeaders
+ * @param {string} resourceName
  * @returns {Record<string, number>}
  */
-function createHeaderIndex(headers) {
+function createHeaderIndex(headers, requiredHeaders, resourceName) {
   /** @type {Record<string, number>} */
   const indexes = {};
   headers.forEach((header, index) => {
     indexes[header] = index;
   });
 
-  PRODUCT_HEADERS.forEach((header) => {
+  requiredHeaders.forEach((header) => {
     if (indexes[header] === undefined) {
-      throw new Error(`Missing required product header: ${header}`);
+      throw new Error(`Missing required ${resourceName} header: ${header}`);
     }
   });
 
@@ -102,7 +104,7 @@ function mapProductRow(row, indexes) {
   const id = sanitizeIdentifier(readCell(row, indexes, 'id'));
   const slug = sanitizeSlug(readCell(row, indexes, 'slug'));
   const name = sanitizeText(readCell(row, indexes, 'nombre'), 160);
-  const category = sanitizeText(readCell(row, indexes, 'categoria'), 80);
+  const category = sanitizeSlug(readCell(row, indexes, 'categoria'));
   const description = sanitizeText(readCell(row, indexes, 'descripcion'), 1000);
   const price = normalizeNumber(readCell(row, indexes, 'precio'), 0);
   const order = normalizeInteger(readCell(row, indexes, 'orden'), 0);

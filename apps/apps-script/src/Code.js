@@ -6,7 +6,7 @@
  */
 function doGet(event) {
   try {
-    const resource = String(event?.parameter?.resource || 'products')
+    const resource = String(event?.parameter?.resource || 'catalog')
       .trim()
       .toLowerCase();
 
@@ -19,18 +19,24 @@ function doGet(event) {
       });
     }
 
-    if (resource !== 'products') {
-      return jsonOutput({
-        ok: false,
-        apiVersion: API_VERSION,
-        error: {
-          code: 'RESOURCE_NOT_FOUND',
-          message: 'El recurso solicitado no existe.',
-        },
-      });
+    const config = getConfig();
+
+    if (resource === 'catalog') {
+      return jsonOutput(getCatalogPayload(config));
     }
 
-    return jsonOutput(getProductsPayload(getConfig()));
+    if (resource === 'products') {
+      return jsonOutput(getProductsPayload(config));
+    }
+
+    return jsonOutput({
+      ok: false,
+      apiVersion: API_VERSION,
+      error: {
+        code: 'RESOURCE_NOT_FOUND',
+        message: 'El recurso solicitado no existe.',
+      },
+    });
   } catch (error) {
     const internalMessage = error instanceof Error ? error.stack || error.message : String(error);
     Logger.log(`Catalog API failure: ${internalMessage}`);

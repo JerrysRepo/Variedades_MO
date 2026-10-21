@@ -1,5 +1,8 @@
 const API_VERSION = 'v1';
 const DEFAULT_PRODUCTS_SHEET = 'Productos';
+const DEFAULT_CATEGORIES_SHEET = 'Categorias';
+const DEFAULT_BENEFITS_SHEET = 'Beneficios';
+const DEFAULT_SETTINGS_SHEET = 'Contenido';
 const DEFAULT_CACHE_SECONDS = 300;
 const DEFAULT_MAX_PRODUCTS = 1000;
 
@@ -7,6 +10,9 @@ const DEFAULT_MAX_PRODUCTS = 1000;
  * @typedef {Object} AppConfig
  * @property {string} spreadsheetId
  * @property {string} productsSheetName
+ * @property {string} categoriesSheetName
+ * @property {string} benefitsSheetName
+ * @property {string} settingsSheetName
  * @property {number} cacheSeconds
  * @property {number} maxProducts
  */
@@ -23,6 +29,10 @@ function getConfig() {
   return Object.freeze({
     spreadsheetId,
     productsSheetName: properties.getProperty('PRODUCTS_SHEET_NAME') || DEFAULT_PRODUCTS_SHEET,
+    categoriesSheetName:
+      properties.getProperty('CATEGORIES_SHEET_NAME') || DEFAULT_CATEGORIES_SHEET,
+    benefitsSheetName: properties.getProperty('BENEFITS_SHEET_NAME') || DEFAULT_BENEFITS_SHEET,
+    settingsSheetName: properties.getProperty('SETTINGS_SHEET_NAME') || DEFAULT_SETTINGS_SHEET,
     cacheSeconds: readIntegerProperty(
       properties,
       'CACHE_SECONDS',

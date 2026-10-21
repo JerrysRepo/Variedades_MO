@@ -1,0 +1,212 @@
+{
+  "ok": true,
+  "apiVersion": "v1",
+  "generatedAt": "2026-10-21T19:00:00.000Z",
+  "data": {
+    "site": {
+      "brand": {
+        "name": "Variedades MOMO",
+        "tagline": "Personaliza, regala, sorprende"
+      },
+      "announcement": {
+        "enabled": true,
+        "text": "Detalles personalizados con cariño · Atención en Guatemala"
+      },
+      "navigation": {
+        "homeLabel": "Inicio",
+        "collectionsLabel": "Colecciones",
+        "catalogLabel": "Catálogo",
+        "storyLabel": "Nuestra esencia",
+        "contactLabel": "Contacto"
+      },
+      "hero": {
+        "eyebrow": "Detalles que hablan por ti",
+        "title": "Ideas hechas para",
+        "highlight": "sorprender.",
+        "description": "Personalizamos regalos, recuerdos y artículos para convertir cada ocasión en algo verdaderamente tuyo.",
+        "primaryLabel": "Explorar el catálogo",
+        "secondaryLabel": "Elegir una colección",
+        "note": "Hecho para ti"
+      },
+      "collections": {
+        "eyebrow": "Encuentra tu detalle",
+        "title": "Empieza por lo que quieres celebrar.",
+        "description": "Colecciones simples para llegar más rápido a una idea que se sienta especial.",
+        "itemLabel": "Colección MOMO",
+        "actionLabel": "Ver productos"
+      },
+      "catalog": {
+        "eyebrow": "Catálogo Variedades MOMO",
+        "title": "Productos listos para hacerlos tuyos.",
+        "description": "Consulta opciones, precios y disponibilidad. La personalización se coordina directamente con nuestro equipo.",
+        "allLabel": "Ver todo",
+        "searchPlaceholder": "Buscar en el catálogo",
+        "searchLabel": "Buscar productos",
+        "filtersLabel": "Filtrar productos por categoría",
+        "featuredLabel": "Favorito",
+        "pricePrefix": "Desde",
+        "placeholderLabel": "Tu diseño aquí",
+        "unknownCategoryLabel": "Colección MOMO",
+        "resultSingular": "producto disponible",
+        "resultPlural": "productos disponibles",
+        "emptyTitle": "No encontramos productos con esos filtros",
+        "emptyDescription": "Prueba otra categoría o escribe una búsqueda diferente."
+      },
+      "story": {
+        "eyebrow": "Nuestra esencia",
+        "title": "Los mejores detalles comienzan con una idea.",
+        "description": "En Variedades MOMO nos gusta escuchar, crear y cuidar cada acabado. Combinamos personalización, color y atención cercana para que regalar se sienta más fácil y más especial.",
+        "mark": "MOMO"
+      },
+      "contact": {
+        "eyebrow": "Hagamos algo especial",
+        "title": "Cuéntanos qué tienes en mente.",
+        "description": "Cuando conectemos los datos reales podrás escribirnos directamente para consultar colores, cantidades y tiempos de entrega.",
+        "whatsappLabel": "Escribir por WhatsApp",
+        "instagramLabel": "Ver Instagram",
+        "pendingMessage": "Canales de contacto pendientes de configurar.",
+        "whatsappUrl": null,
+        "instagramUrl": null,
+        "email": null
+      },
+      "footer": {
+        "description": "Detalles personalizados para regalar, celebrar y sorprender.",
+        "location": "Guatemala"
+      }
+    },
+    "categories": [
+      {
+        "id": "vasos-y-tazas",
+        "name": "Vasos y tazas",
+        "description": "Diseños para acompañar rutinas, regalos y celebraciones.",
+        "imageUrl": null,
+        "order": 1
+      },
+      {
+        "id": "papeleria",
+        "name": "Papelería creativa",
+        "description": "Agendas, libretas y recuerdos con un toque personal.",
+        "imageUrl": null,
+        "order": 2
+      },
+      {
+        "id": "textiles",
+        "name": "Textiles",
+        "description": "Gorras, camisetas y accesorios preparados a tu estilo.",
+        "imageUrl": null,
+        "order": 3
+      },
+      {
+        "id": "eventos",
+        "name": "Detalles para eventos",
+        "description": "Recuerdos que hacen más memorable cada ocasión.",
+        "imageUrl": null,
+        "order": 4
+      }
+    ],
+    "benefits": [
+      {
+        "id": "personalizacion",
+        "title": "Personalización",
+        "description": "Cada detalle puede contar tu historia.",
+        "icon": "sparkles",
+        "order": 1
+      },
+      {
+        "id": "ideas-para-regalar",
+        "title": "Ideas para regalar",
+        "description": "Opciones para distintas personas y ocasiones.",
+        "icon": "gift",
+        "order": 2
+      },
+      {
+        "id": "atencion-cercana",
+        "title": "Atención cercana",
+        "description": "Te acompañamos para definir cada detalle.",
+        "icon": "heart",
+        "order": 3
+      },
+      {
+        "id": "entregas",
+        "title": "Entregas coordinadas",
+        "description": "Consulta cobertura y fechas disponibles.",
+        "icon": "truck",
+        "order": 4
+      }
+    ],
+    "products": [
+      {
+        "id": "DEMO-001",
+        "slug": "vaso-personalizado",
+        "name": "Vaso personalizado",
+        "category": "vasos-y-tazas",
+        "description": "Personaliza colores, nombre y un detalle gráfico para hacerlo único.",
+        "price": 149.99,
+        "currency": "GTQ",
+        "imageUrl": null,
+        "featured": true,
+        "order": 1
+      },
+      {
+        "id": "DEMO-002",
+        "slug": "taza-con-nombre",
+        "name": "Taza con nombre",
+        "category": "vasos-y-tazas",
+        "description": "Una opción práctica para regalar con un diseño hecho para esa persona.",
+        "price": 89.5,
+        "currency": "GTQ",
+        "imageUrl": null,
+        "featured": true,
+        "order": 2
+      },
+      {
+        "id": "DEMO-003",
+        "slug": "agenda-creativa",
+        "name": "Agenda creativa",
+        "category": "papeleria",
+        "description": "Portada personalizada y espacio para organizar ideas durante todo el año.",
+        "price": 125,
+        "currency": "GTQ",
+        "imageUrl": null,
+        "featured": false,
+        "order": 3
+      },
+      {
+        "id": "DEMO-004",
+        "slug": "gorra-personalizada",
+        "name": "Gorra personalizada",
+        "category": "textiles",
+        "description": "Elige una combinación sencilla de color y diseño para uso diario.",
+        "price": 110,
+        "currency": "GTQ",
+        "imageUrl": null,
+        "featured": false,
+        "order": 4
+      },
+      {
+        "id": "DEMO-005",
+        "slug": "recuerdo-para-evento",
+        "name": "Recuerdo para evento",
+        "category": "eventos",
+        "description": "Un detalle adaptable a cumpleaños, celebraciones y fechas importantes.",
+        "price": 35,
+        "currency": "GTQ",
+        "imageUrl": null,
+        "featured": true,
+        "order": 5
+      },
+      {
+        "id": "DEMO-006",
+        "slug": "libreta-personalizada",
+        "name": "Libreta personalizada",
+        "category": "papeleria",
+        "description": "Una libreta útil con nombre, frase o identidad visual.",
+        "price": 75,
+        "currency": "GTQ",
+        "imageUrl": null,
+        "featured": false,
+        "order": 6
+      }
+    ]
+  }
+}

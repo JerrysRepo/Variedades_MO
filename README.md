@@ -1,7 +1,7 @@
-# Variedades MO
+# Variedades MOMO
 
 Catálogo web público administrado desde Google Sheets. El frontend es una aplicación estática de
-React y Google Apps Script expone únicamente los campos públicos de productos.
+React y Google Apps Script expone únicamente el contenido público del sitio.
 
 ## Estado
 
@@ -22,7 +22,7 @@ npm install
 npm run dev
 ```
 
-La aplicación local usa `apps/web/public/mock/products.json` mientras `VITE_API_URL` no esté
+La aplicación local usa `apps/web/public/mock/catalog.json` mientras `VITE_API_URL` no esté
 configurada.
 
 Para comprobar el proyecto completo:
@@ -36,7 +36,7 @@ npm run check
 ```text
 apps/web            Frontend React, Vite y Tailwind CSS
 apps/apps-script    API pública de solo lectura para Google Sheets
-packages/contracts  Contrato y validación compartida de productos
+packages/contracts  Contrato y validación compartida del catálogo
 docs                Arquitectura, seguridad y procedimientos
 ```
 

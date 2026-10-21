@@ -1,22 +1,22 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import type { Product } from '@variedades-mo/contracts';
+import type { CatalogData } from '@variedades-mo/contracts';
 
-import { getProducts } from '../services/products';
+import { getCatalog } from '../services/catalog';
 
-type ProductsState =
-  | { status: 'loading'; products: Product[]; message: null }
-  | { status: 'success'; products: Product[]; message: null }
-  | { status: 'error'; products: Product[]; message: string };
+type CatalogState =
+  | { status: 'loading'; catalog: null; message: null }
+  | { status: 'success'; catalog: CatalogData; message: null }
+  | { status: 'error'; catalog: null; message: string };
 
-const initialState: ProductsState = {
+const initialState: CatalogState = {
   status: 'loading',
-  products: [],
+  catalog: null,
   message: null,
 };
 
-export function useProducts() {
-  const [state, setState] = useState<ProductsState>(initialState);
+export function useCatalog() {
+  const [state, setState] = useState<CatalogState>(initialState);
   const [requestKey, setRequestKey] = useState(0);
 
   const retry = useCallback(() => {
@@ -27,15 +27,15 @@ export function useProducts() {
   useEffect(() => {
     const controller = new AbortController();
 
-    getProducts(controller.signal)
-      .then((products) => {
-        setState({ status: 'success', products, message: null });
+    getCatalog(controller.signal)
+      .then((catalog) => {
+        setState({ status: 'success', catalog, message: null });
       })
       .catch((error: unknown) => {
         if (!controller.signal.aborted) {
           setState({
             status: 'error',
-            products: [],
+            catalog: null,
             message: error instanceof Error ? error.message : 'Ocurrió un error inesperado.',
           });
         }
