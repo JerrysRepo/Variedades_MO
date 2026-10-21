@@ -1,0 +1,45 @@
+{
+  "ok": true,
+  "apiVersion": "v1",
+  "generatedAt": "2026-10-21T17:00:00.000Z",
+  "data": {
+    "products": [
+      {
+        "id": "DEMO-001",
+        "slug": "producto-esencial",
+        "name": "Producto esencial",
+        "category": "Hogar",
+        "description": "Datos simulados para validar la estructura inicial del catálogo.",
+        "price": 149.99,
+        "currency": "GTQ",
+        "imageUrl": null,
+        "featured": true,
+        "order": 1
+      },
+      {
+        "id": "DEMO-002",
+        "slug": "producto-destacado",
+        "name": "Producto destacado",
+        "category": "Novedades",
+        "description": "Se reemplazará automáticamente cuando se conecte Google Apps Script.",
+        "price": 89.5,
+        "currency": "GTQ",
+        "imageUrl": null,
+        "featured": true,
+        "order": 2
+      },
+      {
+        "id": "DEMO-003",
+        "slug": "producto-cotidiano",
+        "name": "Producto cotidiano",
+        "category": "General",
+        "description": "El frontend valida cada registro antes de mostrarlo.",
+        "price": 35,
+        "currency": "GTQ",
+        "imageUrl": null,
+        "featured": false,
+        "order": 3
+      }
+    ]
+  }
+}
