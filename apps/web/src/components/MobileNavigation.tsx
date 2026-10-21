@@ -1,22 +1,24 @@
 import type { SiteContent } from '@variedades-mo/contracts';
 
+import { Icon, type IconName } from './Icon';
+
 type MobileNavigationProps = {
   navigation: SiteContent['navigation'];
 };
 
 export function MobileNavigation({ navigation }: MobileNavigationProps) {
-  const items = [
-    { href: '#contenido-principal', icon: '⌂', label: navigation.homeLabel },
-    { href: '#colecciones', icon: '♡', label: navigation.collectionsLabel },
-    { href: '#catalogo', icon: '▦', label: navigation.catalogLabel },
-    { href: '#contacto', icon: '✦', label: navigation.contactLabel },
+  const items: Array<{ href: string; icon: IconName; label: string }> = [
+    { href: '#contenido-principal', icon: 'home', label: navigation.homeLabel },
+    { href: '#colecciones', icon: 'gift', label: navigation.collectionsLabel },
+    { href: '#catalogo', icon: 'grid', label: navigation.catalogLabel },
+    { href: '#contacto', icon: 'heart', label: navigation.contactLabel },
   ];
 
   return (
     <nav className="mobile-navigation" aria-label="Navegación móvil">
       {items.map((item) => (
         <a href={item.href} key={item.href}>
-          <span aria-hidden="true">{item.icon}</span>
+          <Icon name={item.icon} />
           <small>{item.label}</small>
         </a>
       ))}

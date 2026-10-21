@@ -37,7 +37,7 @@ const BENEFIT_ICONS = Object.freeze(['sparkles', 'gift', 'heart', 'truck']);
  * @property {{homeLabel: string, collectionsLabel: string, catalogLabel: string, storyLabel: string, contactLabel: string}} navigation
  * @property {{eyebrow: string, title: string, highlight: string, description: string, primaryLabel: string, secondaryLabel: string, note: string}} hero
  * @property {{eyebrow: string, title: string, description: string, itemLabel: string, actionLabel: string}} collections
- * @property {{eyebrow: string, title: string, description: string, allLabel: string, searchPlaceholder: string, searchLabel: string, filtersLabel: string, featuredLabel: string, pricePrefix: string, placeholderLabel: string, unknownCategoryLabel: string, resultSingular: string, resultPlural: string, emptyTitle: string, emptyDescription: string}} catalog
+ * @property {{eyebrow: string, title: string, description: string, allLabel: string, searchPlaceholder: string, searchLabel: string, filtersLabel: string, featuredLabel: string, openProductLabel: string, closeProductLabel: string, productDescriptionLabel: string, productCodeLabel: string, pricePrefix: string, placeholderLabel: string, unknownCategoryLabel: string, resultSingular: string, resultPlural: string, emptyTitle: string, emptyDescription: string}} catalog
  * @property {{eyebrow: string, title: string, description: string, mark: string}} story
  * @property {{eyebrow: string, title: string, description: string, whatsappLabel: string, instagramLabel: string, pendingMessage: string, whatsappUrl: string|null, instagramUrl: string|null, email: string|null}} contact
  * @property {{description: string, location: string}} footer
@@ -229,6 +229,14 @@ function readSiteContent(config) {
       searchLabel: readRequiredSetting(settings, 'catalog.search_label', 80),
       filtersLabel: readRequiredSetting(settings, 'catalog.filters_label', 100),
       featuredLabel: readRequiredSetting(settings, 'catalog.featured_label', 40),
+      openProductLabel: readRequiredSetting(settings, 'catalog.open_product_label', 60),
+      closeProductLabel: readRequiredSetting(settings, 'catalog.close_product_label', 60),
+      productDescriptionLabel: readRequiredSetting(
+        settings,
+        'catalog.product_description_label',
+        80,
+      ),
+      productCodeLabel: readRequiredSetting(settings, 'catalog.product_code_label', 40),
       pricePrefix: readRequiredSetting(settings, 'catalog.price_prefix', 40),
       placeholderLabel: readRequiredSetting(settings, 'catalog.placeholder_label', 60),
       unknownCategoryLabel: readRequiredSetting(settings, 'catalog.unknown_category_label', 60),

@@ -5,10 +5,11 @@ import { ProductCard } from './ProductCard';
 type ProductGridProps = {
   categories: Category[];
   content: SiteContent['catalog'];
+  onOpenProduct: (product: Product) => void;
   products: Product[];
 };
 
-export function ProductGrid({ categories, content, products }: ProductGridProps) {
+export function ProductGrid({ categories, content, onOpenProduct, products }: ProductGridProps) {
   const categoryNames = new Map(categories.map((category) => [category.id, category.name]));
 
   if (products.length === 0) {
@@ -28,6 +29,8 @@ export function ProductGrid({ categories, content, products }: ProductGridProps)
           <ProductCard
             categoryName={categoryNames.get(product.category) ?? content.unknownCategoryLabel}
             featuredLabel={content.featuredLabel}
+            onOpen={onOpenProduct}
+            openProductLabel={content.openProductLabel}
             placeholderLabel={content.placeholderLabel}
             pricePrefix={content.pricePrefix}
             product={product}

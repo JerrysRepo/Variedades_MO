@@ -1,9 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import type { Category, Product, SiteContent } from '@variedades-mo/contracts';
 
 import { Icon } from './Icon';
 import { ProductGrid } from './ProductGrid';
+import { ProductModal } from './ProductModal';
 import { SectionHeading } from './SectionHeading';
 
 type CatalogSectionProps = {
@@ -22,6 +23,8 @@ export function CatalogSection({
   selectedCategory,
 }: CatalogSectionProps) {
   const [query, setQuery] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const closeProductModal = useCallback(() => setSelectedProduct(null), []);
 
   const filteredProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase('es');
@@ -83,8 +86,25 @@ export function CatalogSection({
           {filteredProducts.length === 1 ? content.resultSingular : content.resultPlural}
         </p>
 
-        <ProductGrid categories={categories} content={content} products={filteredProducts} />
+        <ProductGrid
+          categories={categories}
+          content={content}
+          onOpenProduct={setSelectedProduct}
+          products={filteredProducts}
+        />
       </div>
+
+      {selectedProduct ? (
+        <ProductModal
+          categoryName={
+            categories.find((category) => category.id === selectedProduct.category)?.name ??
+            content.unknownCategoryLabel
+          }
+          content={content}
+          onClose={closeProductModal}
+          product={selectedProduct}
+        />
+      ) : null}
     </section>
   );
 }
