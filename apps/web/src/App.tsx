@@ -9,9 +9,20 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-[var(--page-background)] text-slate-950">
+      <a
+        className="sr-only z-50 rounded-full bg-slate-950 px-5 py-3 font-bold text-white focus:fixed focus:left-4 focus:top-4 focus:not-sr-only focus:outline-2 focus:outline-offset-2 focus:outline-slate-950"
+        href="#contenido-principal"
+      >
+        Saltar al contenido principal
+      </a>
+
       <header className="border-b border-slate-200/80 bg-white/80 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
-          <a className="flex items-center gap-3" href="#inicio" aria-label="Ir al inicio">
+          <a
+            className="flex items-center gap-3 rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-950"
+            href="#contenido-principal"
+            aria-label="Ir al contenido principal"
+          >
             <span className="grid size-11 place-items-center rounded-2xl bg-slate-950 text-sm font-black text-white">
               MO
             </span>
@@ -27,7 +38,7 @@ export function App() {
         </div>
       </header>
 
-      <main id="inicio">
+      <main id="contenido-principal" tabIndex={-1}>
         <section className="mx-auto max-w-7xl px-5 pb-12 pt-14 sm:px-8 sm:pt-20">
           <div className="max-w-3xl">
             <p className="mb-4 text-sm font-black uppercase tracking-[0.22em] text-orange-700">
@@ -49,7 +60,11 @@ export function App() {
           ) : null}
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8" aria-labelledby="catalog-title">
+        <section
+          className="mx-auto max-w-7xl px-5 pb-20 sm:px-8"
+          aria-busy={status === 'loading'}
+          aria-labelledby="catalog-title"
+        >
           <div className="mb-7 flex items-end justify-between gap-6">
             <div>
               <p className="text-sm font-semibold text-slate-500">Selección disponible</p>
@@ -61,7 +76,12 @@ export function App() {
               </h2>
             </div>
             {status === 'success' ? (
-              <p className="text-sm font-semibold text-slate-500">
+              <p
+                className="text-sm font-semibold text-slate-500"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+              >
                 {products.length} {products.length === 1 ? 'producto' : 'productos'}
               </p>
             ) : null}

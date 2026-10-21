@@ -18,9 +18,10 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-amber-100 via-orange-50 to-rose-100">
         {product.imageUrl ? (
           <img
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105 motion-reduce:transform-none motion-reduce:transition-none"
             src={product.imageUrl}
             alt={product.name}
+            decoding="async"
             loading="lazy"
             referrerPolicy="no-referrer"
           />
@@ -44,7 +45,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-700">
             {product.category}
           </p>
-          <h2 className="text-xl font-bold tracking-tight text-slate-950">{product.name}</h2>
+          <h3 className="text-xl font-bold tracking-tight text-slate-950">{product.name}</h3>
           <p className="line-clamp-2 text-sm leading-6 text-slate-600">{product.description}</p>
         </div>
 
@@ -52,7 +53,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <p className="text-2xl font-black tracking-tight text-slate-950">
             {formatPrice(product.price, product.currency)}
           </p>
-          <span className="text-xs font-medium text-slate-400">#{product.id}</span>
+          <span className="text-xs font-medium text-slate-600">#{product.id}</span>
         </div>
       </div>
     </article>
