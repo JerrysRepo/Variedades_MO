@@ -73,36 +73,41 @@ export function ProductModal({ categoryName, content, onClose, product }: Produc
           <span aria-hidden="true">×</span>
         </button>
 
-        <div className="product-modal__media">
-          <ProductMedia
-            imageUrl={product.imageUrl}
-            name={product.name}
-            placeholderLabel={content.placeholderLabel}
-          />
-          {product.featured ? (
-            <span className="product-card__badge">{content.featuredLabel}</span>
-          ) : null}
-        </div>
+        <div className="product-modal__layout">
+          <header className="product-modal__header">
+            <p className="product-card__category">{categoryName}</p>
+            <h2 id={titleId}>{product.name}</h2>
+          </header>
 
-        <div className="product-modal__content">
-          <p className="product-card__category">{categoryName}</p>
-          <h2 id={titleId}>{product.name}</h2>
-          <p className="product-modal__price">
-            <span>{content.pricePrefix}</span>
-            <strong>{formatPrice(product.price, product.currency)}</strong>
-          </p>
-
-          <div className="product-modal__description">
-            <h3>{content.productDescriptionLabel}</h3>
-            <p id={descriptionId}>{product.description}</p>
+          <div className="product-modal__media">
+            <ProductMedia
+              imageUrl={product.imageUrl}
+              name={product.name}
+              placeholderLabel={content.placeholderLabel}
+            />
+            {product.featured ? (
+              <span className="product-card__badge">{content.featuredLabel}</span>
+            ) : null}
           </div>
 
-          <dl className="product-modal__meta">
-            <div>
-              <dt>{content.productCodeLabel}</dt>
-              <dd>{product.id}</dd>
+          <div className="product-modal__content">
+            <p className="product-modal__price">
+              <span>{content.pricePrefix}</span>
+              <strong>{formatPrice(product.price, product.currency)}</strong>
+            </p>
+
+            <div className="product-modal__description">
+              <h3>{content.productDescriptionLabel}</h3>
+              <p id={descriptionId}>{product.description}</p>
             </div>
-          </dl>
+
+            <dl className="product-modal__meta">
+              <div>
+                <dt>{content.productCodeLabel}</dt>
+                <dd>{product.id}</dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </section>
     </div>,

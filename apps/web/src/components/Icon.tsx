@@ -1,6 +1,6 @@
 import type { BenefitIcon } from '@variedades-mo/contracts';
 
-export type IconName = BenefitIcon | 'arrow' | 'search';
+export type IconName = BenefitIcon | 'arrow' | 'grid' | 'home' | 'search';
 
 type IconProps = {
   className?: string;
@@ -35,6 +35,20 @@ const paths: Record<IconName, React.ReactNode> = {
   arrow: (
     <>
       <path d="M5 12h14M13 6l6 6-6 6" />
+    </>
+  ),
+  grid: (
+    <>
+      <rect height="6" rx="1" width="6" x="3" y="3" />
+      <rect height="6" rx="1" width="6" x="15" y="3" />
+      <rect height="6" rx="1" width="6" x="3" y="15" />
+      <rect height="6" rx="1" width="6" x="15" y="15" />
+    </>
+  ),
+  home: (
+    <>
+      <path d="m3 11 9-8 9 8" />
+      <path d="M5 10v10h14V10M9 20v-6h6v6" />
     </>
   ),
   search: (

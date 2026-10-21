@@ -24,6 +24,11 @@ export function ProductCard({
 }: ProductCardProps) {
   return (
     <article className="product-card">
+      <header className="product-card__header">
+        <p className="product-card__category">{categoryName}</p>
+        <h3>{product.name}</h3>
+      </header>
+
       <div className="product-card__media">
         <ProductMedia
           imageUrl={product.imageUrl}
@@ -35,8 +40,6 @@ export function ProductCard({
       </div>
 
       <div className="product-card__content">
-        <p className="product-card__category">{categoryName}</p>
-        <h3>{product.name}</h3>
         <p className="product-card__description">{product.description}</p>
         <div className="product-card__footer">
           <p>
