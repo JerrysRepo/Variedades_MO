@@ -28,7 +28,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--sticky-header-height) + 1rem);
+  scroll-padding-top: calc(var(--sticky-header-height) + 0.75rem);
 }
 
 body {
@@ -62,12 +62,6 @@ a {
 img {
   display: block;
   max-width: 100%;
-}
-
-main[id],
-section[id],
-footer[id] {
-  scroll-margin-top: calc(var(--sticky-header-height) + 1rem);
 }
 
 ::selection {

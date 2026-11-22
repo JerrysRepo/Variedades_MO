@@ -25,8 +25,8 @@ export function CategoryShowcase({ categories, content, onSelect }: CategoryShow
   };
 
   return (
-    <section className="collections-section" id="colecciones" aria-labelledby="collections-title">
-      <div className="page-container">
+    <section className="collections-section" aria-labelledby="collections-title">
+      <div className="page-container" id="colecciones">
         <SectionHeading
           description={content.description}
           eyebrow={content.eyebrow}
